@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class SQL_BD {
+public class NewSQL {
 
 	public static void main(String[] args) {
 		try {
