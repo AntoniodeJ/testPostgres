@@ -1,22 +1,29 @@
-package testPostgres;
+package acesso_BD;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Main {
+public class SQL_BD {
 
 	public static void main(String[] args) {
 		try {
 			Connection conn = getConnection();
 			Scanner entrada = new Scanner(System.in);
-			String string = entrada.nextLine();
-			String insertTableSQL = string;
-			PreparedStatement preparedStatement = conn.prepareStatement(insertTableSQL);
-			preparedStatement.executeQuery();
+			while(true) {				
+				String string = entrada.nextLine();
+				if(string.equals("exit")) {
+					break;
+				}
+				String insertTableSQL = string;
+				PreparedStatement preparedStatement = conn.prepareStatement(insertTableSQL);
+				ResultSet resultSet = preparedStatement.executeQuery();
+				System.out.println(resultSet);
+			}
 			conn.close();
 			
 		} catch (URISyntaxException e) {
